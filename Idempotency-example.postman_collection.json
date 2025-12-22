@@ -1,0 +1,70 @@
+{
+    "info": {
+        "_postman_id": "8b5f3a1e-8e2b-4b2a-9f4a-8e2b4b2a9f4a",
+        "name": "Idempotency Example",
+        "description": "API collection for the Idempotency Example project.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Apply Discount",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Idempotency-Key",
+                        "value": "{{$guid}}",
+                        "description": "Unique key to ensure the request is only processed once.",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/api/order/1/discount",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "api",
+                        "order",
+                        "1",
+                        "discount"
+                    ]
+                },
+                "description": "Apply a discount to an order."
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8000",
+            "type": "string"
+        }
+    ]
+}
