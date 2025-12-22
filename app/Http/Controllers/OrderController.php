@@ -13,11 +13,11 @@ class OrderController extends Controller
 
         $order->increment('discunt_amount', $discount);
 
-        return response()->json([
+        return [
            'order_id'           => $order->id,
            'discunt_amount'    => $discount,
            'total_amount'       => $order->total_amount - $discount,
-        ],200);
+        ];
         
     }
 }
